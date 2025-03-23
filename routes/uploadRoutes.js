@@ -66,7 +66,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST create upload
-router.post('/', upload.single('file'), async (req, res) => {
+router.post('/', authenticateUser , upload.single('file'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({

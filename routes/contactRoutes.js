@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 });
 
 // POST create contact message
-router.post('/', async (req, res) => {
+router.post('/', authenticateUser ,async (req, res) => {
   const contact = new Contact({
     name: req.body.name,
     email: req.body.email,
